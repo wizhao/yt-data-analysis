@@ -15,13 +15,13 @@ class country:
             sep = line.split(",")
             '''
             0- Video ID 
-            1- Channel Name
-            2- Category
-            3- Publish Date
-            4- Tags
-            5- Views
-            6- Likes
-            7- Dislikes
-            8- Comment Count
+            2- Channel Name
+            3- Category
+            4- Publish Date
+            5- Tags
+            6- Views
+            7- Likes
+            8- Dislikes
+            9- Comment Count
             '''
-            self.videos[sep[0]] = [sep[1], sep[2], sep[3], sep[4], sep[5], sep[6], sep[7], sep[8]]
+            self.videos[sep[0]] = [sep[2], sep[3], sep[4], sep[5], sep[6], sep[7], sep[8], sep[9]]
