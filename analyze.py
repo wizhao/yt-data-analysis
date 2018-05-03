@@ -1,4 +1,4 @@
-import analyze as vz
+import visualize as vz
 from collections import defaultdict as dd
 
 class country:
@@ -6,19 +6,19 @@ class country:
     def __init__(self, fileName):
         self.data = vz.analyze(fileName)
        
-    def channel_sort(self):
-        channels = []
+    def channel_sort(self): #Sorts the file based on channel frequency
+        self.channels = []
         for item in self.data.df['channel_title']:
-            channels.append(item)
+            self.channels.append(item)
             
         self.sortedC = [] 
-        repeat = dd(int)
+        self.repeat = dd(int)
         
         for item in self.channels:
-            repeat[item] += 1
+            self.repeat[item] += 1
             
-        for key in repeat:
-            self.sortedC.append([key, repeat[key]])
+        for key in self.repeat:
+            self.sortedC.append([key, self.repeat[key]])
         
         self.sortedC.sort(key=lambda x: x[1], reverse=True)
         
