@@ -63,8 +63,18 @@ class country:
         }
         ids = []
         
-        
+        count = dd(int)
         for item in self.data.df['category_id']:
-            ids.append(int(item))
-        return ids
+            count[item] += 1
+        
+        self.good = []
+        for key in count:
+            self.good.append([key, count[key]])
+        
+        self.good.sort(key=lambda x: x[1], reverse=True)
+        
+        for i in self.good:
+            i[0] = categories[i[0]]
+            
+        return self.good
         
