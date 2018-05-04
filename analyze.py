@@ -1,10 +1,12 @@
 import visualize as vz
+from itertools import izip
 from collections import defaultdict as dd
 
 class country:
      
     def __init__(self, fileName):
-        self.data = vz.analyze(fileName)
+        self.data = vz.visualize(fileName)
+        
        
     def channel_sort(self): #Sorts the file based on channel frequency
         channels = []
@@ -17,7 +19,7 @@ class country:
         for item in channels:
             repeat[item] += 1
             
-        for key in self.repeat:
+        for key in repeat:
             self.sortedC.append([key, repeat[key]])
         
         self.sortedC.sort(key=lambda x: x[1], reverse=True)
@@ -59,3 +61,10 @@ class country:
             43:"Shows",
             44:"Trailers",
         }
+        rawCategories = dd(int)
+        
+        
+        for vID, cat in zip(self.data.df['video_id'], self.data.df['category_id']):
+            rawCategories[vID] = int(cat)
+        return rawCategories
+        
