@@ -61,7 +61,6 @@ class country:
             43:"Shows",
             44:"Trailers",
         }
-        ids = []
         
         count = dd(int)
         for item in self.data.df['category_id']:
@@ -78,3 +77,5 @@ class country:
             
         return self.good
         
+    def makePieChart(self):
+        self.data.piechart(self.category_analysis())
