@@ -22,7 +22,7 @@ gbSort = gbData.channel_sort()
 gbChannel = gbData.category_analysis()
 
 usData.makePieChart()
-
+usData.makeBarGraph()
 
 
 

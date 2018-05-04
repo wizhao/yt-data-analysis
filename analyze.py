@@ -14,13 +14,13 @@ class country:
             channels.append(item)
             
         self.sortedC = [] 
-        repeat = dd(int)
+        self.repeat = dd(int)
         
         for item in channels:
-            repeat[item] += 1
+            self.repeat[item] += 1
             
-        for key in repeat:
-            self.sortedC.append([key, repeat[key]])
+        for key in self.repeat:
+            self.sortedC.append([key, self.repeat[key]])
         
         self.sortedC.sort(key=lambda x: x[1], reverse=True)
         
@@ -79,3 +79,8 @@ class country:
         
     def makePieChart(self):
         self.data.piechart(self.category_analysis())
+        
+    def makeBarGraph(self):
+        top10 = self.channel_sort()
+        top10[:10]
+        self.data.bargraph(top10)
