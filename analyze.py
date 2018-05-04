@@ -61,10 +61,10 @@ class country:
             43:"Shows",
             44:"Trailers",
         }
-        rawCategories = dd(int)
+        ids = []
         
         
-        for vID, cat in zip(self.data.df['video_id'], self.data.df['category_id']):
-            rawCategories[vID] = int(cat)
-        return rawCategories
+        for item in self.data.df['category_id']:
+            ids.append(int(item))
+        return ids
         
