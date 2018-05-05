@@ -21,23 +21,20 @@ class visualize:
         for i in dataSet:
             channels.append(i[0])
             numbers.append(i[1])
-<<<<<<< HEAD
+
         x_pos = [i for i, _ in enumerate(channels)]
         
         plt.bar(x_pos,numbers)
         plt.show()
         
-=======
         ax = sns.barplot(x="Channel", y="Number of Days Trending", data=numbers, order=channels)
         #ax = sns.barplot(data=self.df.repeat)
         ax.show()
-        '''
         sns.set_style("whitegrid")
         tips = sns.load_dataset("tips")
         ax = sns.barplot(x="day", y="total_bill", data=tips)
         ax.show()
-    
->>>>>>> origin/master
+        
     def piechart(self, dataSet):
         labels = []
         sizes = []

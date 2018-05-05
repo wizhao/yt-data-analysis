@@ -26,18 +26,15 @@ gbSort = gbData.channel_sort()
 gbChannel = gbData.category_analysis()
 gbOther = gbData.likes_dislikes_comments()
 
-<<<<<<< HEAD
 usData.makePieChart()
 #usData.makeBarGraph()
 
 
-=======
 #usData.makePieChart()
 #usData.makeBarGraph()
 fullData = [usData.ScatterPlotData(), caData.ScatterPlotData(), 
             deData.ScatterPlotData(), frData.ScatterPlotData(),
             gbData.ScatterPlotData()]
->>>>>>> origin/master
 
 usData.makeScatterPlot(fullData)
 
