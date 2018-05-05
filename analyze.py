@@ -96,12 +96,9 @@ class country:
         self.dataset = []
         for index in indexes:
             self.dataset.append([self.combined[0][index], self.combined[1][index]])
-        return self.dataset\
+        return self.dataset
         
     def barGraphData(self):
         top10 = self.channel_sort()
         top10[:10]
-        self.data.bargraph(top10)
-    
-    
-        
+        return top10

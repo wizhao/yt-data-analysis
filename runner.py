@@ -30,21 +30,17 @@ gbSort = gbData.channel_sort()
 gbChannel = gbData.category_analysis()
 gbOther = gbData.likes_dislikes()
 
-#usData.makePieChart()
-#usData.makeBarGraph()
-
-
-#usData.makePieChart()
-#usData.makeBarGraph()
-'''barData = [usData.barGraphData(), caData.barGraphData(),
+barData = [usData.barGraphData(), caData.barGraphData(),
            deData.barGraphData(), frData.barGraphData(),
-           gbData.barGraphData()]'''
-scatterData = [usData.ScatterPlotData(), caData.ScatterPlotData(), 
-            deData.ScatterPlotData(), frData.ScatterPlotData(),
-            gbData.ScatterPlotData()]
+           gbData.barGraphData()]
+           
+scatterData = [usData.scatterPlotData(), caData.scatterPlotData(), 
+            deData.scatterPlotData(), frData.scatterPlotData(),
+            gbData.scatterPlotData()]
 
-                        
-#visualize.scatterplot(scatterData)
+scatter = visualize()
+scatter.scatterplot(scatterData)                       
+
 
 '''
 print usChannel
