@@ -99,6 +99,6 @@ class country:
         return self.dataset
         
     def barGraphData(self):
-        top10 = self.channel_sort()
-        top10[:10]
-        return top10
+        top10 = self.sortedC
+        return top10[:10]
+        

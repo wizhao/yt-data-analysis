@@ -6,9 +6,43 @@ class visualize:
         pass
         
     def bargraph(self, dataSet):
-        pass
-    
-
+        i = 0
+        while i < len(dataSet):
+            x = []
+            y = []
+            names = []
+            j = 0
+            while (j < len(dataSet[i])):
+                short = dataSet[i][j][0]
+                short = str(short)[:15]
+                names.append(short)
+                y.append(int(dataSet[i][j][1]))
+                x.append(j+1)
+                j += 1
+            if i == 0:
+                plt.bar(x, y, color="b")
+                plt.xticks(x,names)
+                plt.xlabel("Channel Name")
+                plt.ylabel("Frequency in Trending")
+                plt.title("US Trending Frequency by Channel")
+                
+            elif i ==1:
+                plt.bar(x, y, color="g")
+                plt.xticks(x,names)
+                plt.xlabel("Channel Name")
+                plt.ylabel("Frequency in Trending")
+                plt.title("CA Trending Frequency by Channel")
+                
+            elif i == 2:
+                plt.bar(x, y, color="y")
+                plt.xticks(x,names)
+                plt.xlabel("Channel Name")
+                plt.ylabel("Frequency in Trending")
+                plt.title("GB Trending Frequency by Channel")
+                
+            i+= 1
+        plt.show()
+        
     def piechart(self, dataSet):
         labels = []
         sizes = []

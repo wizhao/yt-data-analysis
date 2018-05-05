@@ -15,7 +15,6 @@ frSort = frData.channel_sort()
 gbSort = gbData.channel_sort()
 
 barData = [usData.barGraphData(), caData.barGraphData(),
-           deData.barGraphData(), frData.barGraphData(),
            gbData.barGraphData()]
 
 
@@ -33,22 +32,13 @@ scatterData = [usData.scatterPlotData(), caData.scatterPlotData(),
 pieData = [usData.category_analysis(), deData.category_analysis(),
            caData.category_analysis(), frData.category_analysis(),
            gbData.category_analysis()]
-           
+
+bar = visualize()
+bar.bargraph(barData)
+
+'''                      
 scatter = visualize()
 scatter.scatterplot(scatterData)
 
 pie = visualize()
-pie.piechart(usChannel)                                              
-
-
-'''
-print usChannel
-print "\n"
-print caChannel
-print "\n"
-print deChannel
-print "\n"
-print frChannel
-print "\n"
-print gbChannel
-'''
+pie.piechart(usChannel)            '''                                  
