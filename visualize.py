@@ -19,14 +19,25 @@ class visualize:
             total += i[1]
         
         other = 0
+        '''
         for i in range(len(sizes)):
-            if float(sizes[i])/total < 0.05:
-                del labels[i]
-                other += sizes[i]
-                del sizes[i]
-                i = i-1
+            if i < len(sizes):
+                if float(sizes[i])/total < 0.05:
+                    del labels[i]
+                    other += sizes[i]
+                    del sizes[i]
+                    i = i-1
+        '''
         
+        count = 0
+        for i in sizes:
+            if float(i)/total < 0.05:
+                count += 1
+                other += i
+                
         if other > 0:
+            sizes = sizes[:-count]
+            labels = labels[:-count]
             labels.append("Other")
             sizes.append(other)
                 
@@ -38,9 +49,9 @@ class visualize:
             return labels[i] if pct > 5 else ''
         '''
         fig1, ax1 = plt.subplots()
-        ax1.pie(sizes, labels=labels, autopct=autopct_more_than_5, startangle=45,labeldistance=1.3)
+        ax1.pie(sizes, labels=labels, autopct=autopct_more_than_5, startangle=45,labeldistance=1.1)
         ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-        
+        ax1.set_title("Percentage of Trending Videos by Category")
         plt.show()
     
     def scatterplot(self, dataSet):
