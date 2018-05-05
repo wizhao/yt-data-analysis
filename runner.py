@@ -40,5 +40,22 @@ bar.bargraph(barData)
 scatter = visualize()
 scatter.scatterplot(scatterData)
 
+<<<<<<< HEAD
 pie = visualize()
 pie.piechart(usChannel)            '''                                  
+=======
+pie = visualize()                                             
+#pie.piechart(pieData)
+
+'''
+print usChannel
+print "\n"
+print caChannel
+print "\n"
+print deChannel
+print "\n"
+print frChannel
+print "\n"
+print gbChannel
+'''
+>>>>>>> f81d1b3c76376b8a5c94862391877e97dc31a3b3
