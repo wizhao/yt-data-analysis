@@ -37,9 +37,8 @@ pieData = [usData.category_analysis(), deData.category_analysis(),
 scatter = visualize()
 scatter.scatterplot(scatterData)
 
-pie = visualize()
-pie.piechart(usChannel)                                              
-
+pie = visualize()                                             
+#pie.piechart(pieData)
 
 '''
 print usChannel
