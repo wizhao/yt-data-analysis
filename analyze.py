@@ -88,11 +88,18 @@ class country:
         for item in self.data.df['dislikes']:
             dislikes.append(item)
         
-        for item in self.data.df['comments']:
+        for item in self.data.df['comment_count']:
             comments.append(item)
         
         self.combined = [likes, dislikes, comments]
         return self.combined
+        
+    def ScatterPlotData(self):
+        indexes = rand.sample(range(len(self.combined[0])), 500)
+        self.dataset = []
+        for index in indexes:
+            self.dataset.append([self.combined[0][index], self.combined[1][index], self.combined[2][index]])
+        return self.dataset
         
     def makePieChart(self):
         self.data.piechart(self.category_analysis())
@@ -102,8 +109,7 @@ class country:
         top10[:10]
         self.data.bargraph(top10)
     
-    def makeScatterPlot(self):
-        indexes = rand.sample(range(len(self.combined[0])), 50)
-        self.dataset = []
-        for index in indexes:
-            self.dataset.append([self.combined[0][index], self.combined[1][index], self.combined[2][index]])
+    def makeScatterPlot(self, dataSet):
+        self.data.scatterplot(dataSet)
+    
+        
