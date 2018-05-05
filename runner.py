@@ -30,6 +30,10 @@ gbSort = gbData.channel_sort()
 gbChannel = gbData.category_analysis()
 gbOther = gbData.likes_dislikes()
 
+usData.makePieChart()
+#usData.makeBarGraph()
+
+
 #usData.makePieChart()
 #usData.makeBarGraph()
 '''barData = [usData.barGraphData(), caData.barGraphData(),
