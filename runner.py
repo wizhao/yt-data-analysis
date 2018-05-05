@@ -1,4 +1,5 @@
 import analyze as az
+from visualize import *
 
 usData = az.country('USvideos.csv')
 caData = az.country('CAvideos.csv')
@@ -8,31 +9,38 @@ gbData = az.country('GBvideos.csv')
 
 usSort = usData.channel_sort()
 usChannel = usData.category_analysis()
-usOther = usData.likes_dislikes_comments()
+usOther = usData.likes_dislikes()
 
 deSort = deData.channel_sort()
 deChannel = deData.category_analysis()
-deOther = deData.likes_dislikes_comments()
+deOther = deData.likes_dislikes()
+
 
 caSort = caData.channel_sort()
 caChannel = caData.category_analysis()
-caOther = caData.likes_dislikes_comments()
+caOther = caData.likes_dislikes()
+
 
 frSort = frData.channel_sort()
 frChannel = frData.category_analysis()
-frOther = frData.likes_dislikes_comments()
+frOther = frData.likes_dislikes()
+
 
 gbSort = gbData.channel_sort()
 gbChannel = gbData.category_analysis()
-gbOther = gbData.likes_dislikes_comments()
+gbOther = gbData.likes_dislikes()
 
 #usData.makePieChart()
 #usData.makeBarGraph()
-fullData = [usData.ScatterPlotData(), caData.ScatterPlotData(), 
+'''barData = [usData.barGraphData(), caData.barGraphData(),
+           deData.barGraphData(), frData.barGraphData(),
+           gbData.barGraphData()]'''
+scatterData = [usData.ScatterPlotData(), caData.ScatterPlotData(), 
             deData.ScatterPlotData(), frData.ScatterPlotData(),
             gbData.ScatterPlotData()]
 
-usData.makeScatterPlot(fullData)
+                        
+#visualize.scatterplot(scatterData)
 
 '''
 print usChannel
