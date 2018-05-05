@@ -1,25 +1,24 @@
 import visualize as vz
-from itertools import izip
 from collections import defaultdict as dd
 
 class country:
      
-    def __init__(self, fileName):
+    def __init__(self, fileName): # Creates the data table from the CSV file 
         self.data = vz.visualize(fileName)
         
        
-    def channel_sort(self): #Sorts the file based on channel frequency
+    def channel_sort(self): # Sorts the file based on channel frequency
         channels = []
-        for item in self.data.df['channel_title']:
+        for item in self.data.df['channel_title']: # Stores all channel names
             channels.append(item)
             
         self.sortedC = [] 
         self.repeat = dd(int)
         
-        for item in channels:
+        for item in channels: # Counts the number of times each channel appears
             self.repeat[item] += 1
             
-        for key in self.repeat:
+        for key in self.repeat: # Orders channels from increasing to decreasing frequency
             self.sortedC.append([key, self.repeat[key]])
         
         self.sortedC.sort(key=lambda x: x[1], reverse=True)
@@ -63,19 +62,35 @@ class country:
         }
         
         count = dd(int)
-        for item in self.data.df['category_id']:
+        for item in self.data.df['category_id']: # Stores the category ID (Youtube API)
             count[item] += 1
         
         self.good = []
-        for key in count:
+        for key in count: # Sets a dictionary with category frequency
             self.good.append([key, count[key]])
         
-        self.good.sort(key=lambda x: x[1], reverse=True)
+        self.good.sort(key=lambda x: x[1], reverse=True) # Sorts frequency from increasing to decreasing
         
-        for i in self.good:
+        for i in self.good: # Replaces category IDs with category name
             i[0] = categories[i[0]]
             
         return self.good
+    
+    def likes_dislikes_comments(self):
+        likes = []
+        dislikes = []
+        comments = []
+        
+        for item in self.data.df['likes']:
+            likes.append(item)
+        
+        for item in self.data.df['dislikes']:
+            dislikes.append(item)
+        
+        for item in self.data.df['comments']:
+            comments.append(item)
+        
+        return [likes, dislikes, comments]
         
     def makePieChart(self):
         self.data.piechart(self.category_analysis())
