@@ -91,22 +91,17 @@ class country:
         self.combined = [likes, dislikes]
         return self.combined
         
-    def ScatterPlotData(self):
+    def scatterPlotData(self):
         indexes = rand.sample(range(len(self.combined[0])), 500)
         self.dataset = []
         for index in indexes:
             self.dataset.append([self.combined[0][index], self.combined[1][index]])
-        return self.dataset
-        
-    def makePieChart(self):
-        self.data.piechart(self.category_analysis())
+        return self.dataset\
         
     def barGraphData(self):
         top10 = self.channel_sort()
         top10[:10]
         self.data.bargraph(top10)
     
-    def makeScatterPlot(self, dataSet):
-        self.data.scatterplot(dataSet)
     
         

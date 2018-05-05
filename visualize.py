@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 
 class visualize:
     
-    def __init__(self, dataFile):
+    def __init__(self):
         pass
         
     def bargraph(self, dataSet):
