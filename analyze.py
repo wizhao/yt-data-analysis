@@ -78,27 +78,27 @@ class country:
             
         return self.good
     
-    def likes_dislikes(self):
+    def likes_dislikes(self): # Stores the number of likes and dislikes of all trending videos
         likes = []
         dislikes = []
         
-        for item in self.data['likes']:
+        for item in self.data['likes']: # Appends the number of likes to a list
             likes.append(item)
         
-        for item in self.data['dislikes']:
+        for item in self.data['dislikes']: # Appends the number of dislikes to a list
             dislikes.append(item)
         
-        self.combined = [likes, dislikes]
+        self.combined = [likes, dislikes] # Combines the two lists together
         return self.combined
         
-    def scatterPlotData(self):
+    def scatterPlotData(self): # Randomly selects 500 data points to be displayed as a scatterplot
         indexes = rand.sample(range(len(self.combined[0])), 500)
         self.dataset = []
         for index in indexes:
             self.dataset.append([self.combined[0][index], self.combined[1][index]])
         return self.dataset
         
-    def barGraphData(self):
+    def barGraphData(self): # Returns the 10 most popular channels in a given region
         top10 = self.sortedC
         return top10[:10]
         
