@@ -1,8 +1,4 @@
-import os
-import seaborn as sns
 import matplotlib.pyplot as plt
-import pandas as pd
-import numpy as np
 
 class visualize:
     
@@ -10,32 +6,9 @@ class visualize:
         pass
         
     def bargraph(self, dataSet):
-<<<<<<< HEAD
         pass
     
-=======
-        sns.set_style("whitegrid")
-        #snsData = sns.load_dataset("tips")
-        numbers = []
-        channels = []
-        for i in dataSet:
-            channels.append(i[0])
-            numbers.append(i[1])
 
-        x_pos = [i for i, _ in enumerate(channels)]
-        
-        plt.bar(x_pos,numbers)
-        plt.show()
-        
-        ax = sns.barplot(x="Channel", y="Number of Days Trending", data=numbers, order=channels)
-        #ax = sns.barplot(data=self.df.repeat)
-        ax.show()
-        sns.set_style("whitegrid")
-        tips = sns.load_dataset("tips")
-        ax = sns.barplot(x="day", y="total_bill", data=tips)
-        ax.show()
-        
->>>>>>> 8f93874ae8d1283a70a749de25133d2c2d776fc3
     def piechart(self, dataSet):
         labels = []
         sizes = []
