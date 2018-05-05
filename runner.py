@@ -38,14 +38,14 @@ bar.bargraph(barData)
 
 '''                      
 scatter = visualize()
-scatter.scatterplot(scatterData)
+#scatter.scatterplot(scatterData)
 
 <<<<<<< HEAD
 pie = visualize()
 pie.piechart(usChannel)            '''                                  
 =======
 pie = visualize()                                             
-#pie.piechart(pieData)
+pie.piechart(pieData)
 
 '''
 print usChannel

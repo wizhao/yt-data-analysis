@@ -46,6 +46,22 @@ class visualize:
     def piechart(self, dataSet):
         def autopct_more_than_5(pct):
             return ('%1.f%%' % pct) if pct > 5 else ''
+        
+        def autopct_color(pct):
+            colorlist = {
+            0:"",
+            1:"",
+            2:"",
+            3:"",
+            4:"",
+            5:"",
+            6:"",
+            7:"",
+            8:"",
+            9:"",
+            }
+            val = int(round(pct*self.total/100.0))
+            color = sizes.index(val)
             
         def makelists(data):
             self.total = 0
