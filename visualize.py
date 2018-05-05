@@ -2,18 +2,18 @@ import matplotlib.pyplot as plt
 
 class visualize:
     
-    def __init__(self):
+    def __init__(self): #do nothing on initialization
         pass
         
-    def bargraph(self, dataSet):
+    def bargraph(self, dataSet): #creates bar graphs
         i = 0
         
-        while i < len(dataSet):
+        while i < len(dataSet): #extracts data from 5 data files
             x = []
             y = []
             names = []
             j = 0
-            while (j < len(dataSet[i])):
+            while (j < len(dataSet[i])): #formats data into 2 lists for plotting purposes
                 short = dataSet[i][j][0]
                 short = str(short)[:15]
                 names.append(short)
@@ -21,14 +21,14 @@ class visualize:
                 x.append(j+1)
                 j += 1
             if i == 0:
-                plt.figure(1)
-                plt.bar(x, y, color="b")
-                plt.xticks(x,names)
-                plt.xlabel("Channel Name")
-                plt.ylabel("Frequency in Trending")
-                plt.title("US Trending Frequency by Channel")
+                plt.figure(1) #create a new window
+                plt.bar(x, y, color="b") #create bar graph with specific color
+                plt.xticks(x,names) #add categories to data
+                plt.xlabel("Channel Name") #Add labels on axes
+                plt.ylabel("Frequency in Trending") #||
+                plt.title("US Trending Frequency by Channel") #Add title of graph
                 
-            elif i ==1:
+            elif i ==1: #repeat for Canada and UK
                 plt.figure(2)
                 plt.bar(x, y, color="g")
                 plt.xticks(x,names)
@@ -45,7 +45,7 @@ class visualize:
                 plt.title("GB Trending Frequency by Channel")
                 
             i+= 1
-        #show()
+        #show() #dont show until the end
         
     def piechart(self, dataSet):
         plt.figure(4)
