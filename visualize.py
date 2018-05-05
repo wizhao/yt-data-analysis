@@ -7,13 +7,13 @@ import numpy as np
 class visualize:
     
     def __init__(self, dataFile):
-        self.df = pd.read_csv(os.getcwd() + '\\Data\\' + dataFile, index_col=0)
-        
-    def histogram(self):
-        print self.df.head() # will eventually produce a histogram
-        
+        pass
         
     def bargraph(self, dataSet):
+<<<<<<< HEAD
+        pass
+    
+=======
         sns.set_style("whitegrid")
         #snsData = sns.load_dataset("tips")
         numbers = []
@@ -35,6 +35,7 @@ class visualize:
         ax = sns.barplot(x="day", y="total_bill", data=tips)
         ax.show()
         
+>>>>>>> 8f93874ae8d1283a70a749de25133d2c2d776fc3
     def piechart(self, dataSet):
         labels = []
         sizes = []

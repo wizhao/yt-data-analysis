@@ -1,16 +1,17 @@
-import visualize as vz
 import random as rand
 from collections import defaultdict as dd
+import pandas as pd
+import os
 
 class country:
      
     def __init__(self, fileName): # Creates the data table from the CSV file 
-        self.data = vz.visualize(fileName)
+        self.data = pd.read_csv(os.getcwd() + '\\Data\\' + fileName, index_col=0)
         
        
     def channel_sort(self): # Sorts the file based on channel frequency
         channels = []
-        for item in self.data.df['channel_title']: # Stores all channel names
+        for item in self.data['channel_title']: # Stores all channel names
             channels.append(item)
             
         self.sortedC = [] 
@@ -63,7 +64,7 @@ class country:
         }
         
         count = dd(int)
-        for item in self.data.df['category_id']: # Stores the category ID (Youtube API)
+        for item in self.data['category_id']: # Stores the category ID (Youtube API)
             count[item] += 1
         
         self.good = []
@@ -77,34 +78,30 @@ class country:
             
         return self.good
     
-    def likes_dislikes_comments(self):
+    def likes_dislikes(self):
         likes = []
         dislikes = []
-        comments = []
         
-        for item in self.data.df['likes']:
+        for item in self.data['likes']:
             likes.append(item)
         
-        for item in self.data.df['dislikes']:
+        for item in self.data['dislikes']:
             dislikes.append(item)
         
-        for item in self.data.df['comment_count']:
-            comments.append(item)
-        
-        self.combined = [likes, dislikes, comments]
+        self.combined = [likes, dislikes]
         return self.combined
         
     def ScatterPlotData(self):
         indexes = rand.sample(range(len(self.combined[0])), 500)
         self.dataset = []
         for index in indexes:
-            self.dataset.append([self.combined[0][index], self.combined[1][index], self.combined[2][index]])
+            self.dataset.append([self.combined[0][index], self.combined[1][index]])
         return self.dataset
         
     def makePieChart(self):
         self.data.piechart(self.category_analysis())
         
-    def makeBarGraph(self):
+    def barGraphData(self):
         top10 = self.channel_sort()
         top10[:10]
         self.data.bargraph(top10)
