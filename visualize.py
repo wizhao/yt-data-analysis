@@ -2,18 +2,18 @@ import matplotlib.pyplot as plt
 
 class visualize:
     
-    def __init__(self):
+    def __init__(self): #do nothing on initialization
         pass
         
-    def bargraph(self, dataSet):
+    def bargraph(self, dataSet): #creates bar graphs
         i = 0
         
-        while i < len(dataSet):
+        while i < len(dataSet): #extracts data from 5 data files
             x = []
             y = []
             names = []
             j = 0
-            while (j < len(dataSet[i])):
+            while (j < len(dataSet[i])): #formats data into 2 lists for plotting purposes
                 short = dataSet[i][j][0]
                 short = str(short)[:15]
                 names.append(short)
@@ -21,14 +21,14 @@ class visualize:
                 x.append(j+1)
                 j += 1
             if i == 0:
-                plt.figure(1)
-                plt.bar(x, y, color="b")
-                plt.xticks(x,names)
-                plt.xlabel("Channel Name")
-                plt.ylabel("Frequency in Trending")
-                plt.title("US Trending Frequency by Channel")
+                plt.figure(1) #create a new window
+                plt.bar(x, y, color="b") #create bar graph with specific color
+                plt.xticks(x,names) #add categories to data
+                plt.xlabel("Channel Name") #Add labels on axes
+                plt.ylabel("Frequency in Trending") #||
+                plt.title("US Trending Frequency by Channel") #Add title of graph
                 
-            elif i ==1:
+            elif i ==1: #repeat for Canada and UK
                 plt.figure(2)
                 plt.bar(x, y, color="g")
                 plt.xticks(x,names)
@@ -45,11 +45,11 @@ class visualize:
                 plt.title("GB Trending Frequency by Channel")
                 
             i+= 1
-        #show()
+        #show() #dont show until the end
         
     def piechart(self, dataSet):
         plt.figure(4)
-        def autopct_more_than_5(pct):
+        def autopct_more_than_5(pct):   #Displays percent iff it's >5%
             return ('%1.f%%' % pct) if pct > 5 else ''
         '''no worky
         def autopct_color(pct):
@@ -93,7 +93,7 @@ class visualize:
             else:
                 return colorlist[cat]
         '''
-        def makelists(data):
+        def makelists(data): #formats data into 2 lists
             self.total = 0
             labels = []
             sizes = []
@@ -104,7 +104,7 @@ class visualize:
                 self.total += j[1]
             return sizes,labels
         
-        def makeOther(sizes,labels):
+        def makeOther(sizes,labels): #congregates small percents under 5% into the "Other" category
             other = 0
             count = 0
             for j in sizes:
@@ -120,16 +120,16 @@ class visualize:
         
         
         i=0
-        while i < len(dataSet):
+        while i < len(dataSet): #loops thru the 5 data tables, making a pie chart for each
             a,b = makelists(dataSet[i])
-            sizes, labels = makeOther(a,b)
+            sizes, labels = makeOther(a,b) #gets appropriate data for each chart
             if i == 0:
-                plt.subplot(231)
-                plt.pie(sizes, labels=labels, autopct=autopct_more_than_5, startangle=45,labeldistance=1.1)
+                plt.subplot(231) #determines the spot on the window
+                plt.pie(sizes, labels=labels, autopct=autopct_more_than_5, startangle=45,labeldistance=1.1) #makes the pie chart
                 plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-                plt.title("United States")
+                plt.title("United States") #sets title
                 
-            elif i == 1:
+            elif i == 1: #repeat for all pie charts
                 plt.subplot(233)
                 plt.pie(sizes, labels=labels, autopct=autopct_more_than_5, startangle=45,labeldistance=1.1)
                 plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
@@ -150,7 +150,7 @@ class visualize:
                 plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
                 plt.title("United Kingdom")
             i += 1
-        #fp.show()
+        #fp.show() #dont show until the end
         
         
         
