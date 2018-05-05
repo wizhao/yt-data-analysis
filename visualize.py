@@ -7,6 +7,7 @@ class visualize:
         
     def bargraph(self, dataSet):
         i = 0
+        
         while i < len(dataSet):
             x = []
             y = []
@@ -20,6 +21,7 @@ class visualize:
                 x.append(j+1)
                 j += 1
             if i == 0:
+                plt.figure(1)
                 plt.bar(x, y, color="b")
                 plt.xticks(x,names)
                 plt.xlabel("Channel Name")
@@ -27,6 +29,7 @@ class visualize:
                 plt.title("US Trending Frequency by Channel")
                 
             elif i ==1:
+                plt.figure(2)
                 plt.bar(x, y, color="g")
                 plt.xticks(x,names)
                 plt.xlabel("Channel Name")
@@ -34,6 +37,7 @@ class visualize:
                 plt.title("CA Trending Frequency by Channel")
                 
             elif i == 2:
+                plt.figure(3)
                 plt.bar(x, y, color="y")
                 plt.xticks(x,names)
                 plt.xlabel("Channel Name")
@@ -41,28 +45,54 @@ class visualize:
                 plt.title("GB Trending Frequency by Channel")
                 
             i+= 1
-        plt.show()
+        #show()
         
     def piechart(self, dataSet):
+        plt.figure(4)
         def autopct_more_than_5(pct):
             return ('%1.f%%' % pct) if pct > 5 else ''
-        
+        '''no worky
         def autopct_color(pct):
             colorlist = {
-            0:"",
-            1:"",
-            2:"",
-            3:"",
-            4:"",
-            5:"",
-            6:"",
-            7:"",
-            8:"",
-            9:"",
+            "Film & Animation":"c",
+            "Auto & Vehicles":"",
+            "Music":"coral",
+            "Pets & Animals":"",
+            "Sports":"yellowgreen",
+            "Short Movies":"",
+            "Travel & Events":"",
+            "Gaming":"",
+            "Video Blogs":"",
+            "People & Blogs":"purple",
+            "Comedy":"r",
+            "Entertainment":"royalblue",
+            "News & Politics":"brown",
+            "HowTo & Style":"green",
+            "Education":"",
+            "Science & Technology":"pink",
+            "Nonprofits & Activism":"",
+            "Movies":"",
+            "Anime/Animation":"",
+            "Action/Adventure":"",
+            "Classics":"",
+            "Documentary":"",
+            "Drama":"",
+            "Family":"",
+            "Foreign":"",
+            "Horror":"",
+            "Sci-Fi/Fantasy":"",
+            "Thriller":"",
+            "Shorts":"",
+            "Shows":"",
+            "Trailers":""
             }
             val = int(round(pct*self.total/100.0))
-            color = sizes.index(val)
-            
+            cat = labels[sizes.index(val)]
+            if cat == "Other":
+                return "gray"
+            else:
+                return colorlist[cat]
+        '''
         def makelists(data):
             self.total = 0
             labels = []
@@ -87,6 +117,7 @@ class visualize:
                 labels.append("Other")
                 sizes.append(other)
             return sizes, labels
+        
         
         i=0
         while i < len(dataSet):
@@ -119,13 +150,13 @@ class visualize:
                 plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
                 plt.title("United Kingdom")
             i += 1
-        plt.title('Countries\' Trending Videos by Category')
-        plt.show()
+        #fp.show()
         
         
         
     
     def scatterplot(self, dataSet):
+        plt.figure(5)
         i=0
         while i < len(dataSet):                
             x=[]
